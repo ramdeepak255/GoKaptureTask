@@ -52,7 +52,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth ->
                         auth
                                 .requestMatchers("/user/*", "/Task/*", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll() // Permit registration and login
-                                .anyRequest().authenticated() // Secure other endpoints
+                                .anyRequest().authenticated() 
                 );
 
         return http.build();
