@@ -15,8 +15,8 @@ public class DataSourceConfig {
     public DataSource dataSourceForTodoappPostgres1() {
         return DataSourceBuilder.create()
                 .url("jdbc:postgresql://localhost:5432/MyDatabase")
-                .username("postgres")  // Change this to your PostgreSQL username
-                .password("@RAMmanoj1")  // Change this to your PostgreSQL password
+                .username("postgres")  
+                .password("@RAMmanoj1")  
                 .build();
     }
 }
