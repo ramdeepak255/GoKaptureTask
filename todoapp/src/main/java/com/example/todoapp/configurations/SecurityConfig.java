@@ -18,8 +18,8 @@ public class SecurityConfig {
 //                .csrf(csrf -> csrf.disable())
 //                .authorizeHttpRequests(auth ->
 //                        auth
-//                                .requestMatchers("/api/register", "/api/login").permitAll() // Allow access to registration and login
-//                                .anyRequest().authenticated() // Secure other endpoints
+//                                .requestMatchers("/api/register", "/api/login").permitAll() 
+//                                .anyRequest().authenticated() 
 //                );
 //
 //        return http.build();
@@ -38,8 +38,8 @@ public class SecurityConfig {
 //                                        "/swagger-ui.html",
 //                                        "/api/register",
 //                                        "/api/login"
-//                                ).permitAll() // Allow access to registration and login
-//                                .anyRequest().authenticated() // Secure other endpoints
+//                                ).permitAll() 
+//                                .anyRequest().authenticated() 
 //                );
 //
 //        return http.build();
@@ -48,7 +48,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // Disable CSRF protection
+                .csrf(csrf -> csrf.disable()) 
                 .authorizeHttpRequests(auth ->
                         auth
                                 .requestMatchers("/user/*", "/Task/*", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll() // Permit registration and login
