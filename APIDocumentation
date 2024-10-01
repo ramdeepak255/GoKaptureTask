@@ -1,0 +1,145 @@
+Authentication and Security
+
+This API uses JWT (JSON Web Token) for authentication. To access protected endpoints, you must include the JWT token in the `Authorization` header of each request.
+Tokens expire after 24 hours. You can retrieve a new token by logging in with your credentials.
+
+Task Management API
+The Task Management API allows users to create, update, delete, and retrieve tasks. It supports user authentication and role-based access control. This API is built using RESTful principles and returns data in JSON format.
+
+CREATE
+
+User Registration
+Endpoint: `/user/register` 
+Method: `POST` 
+Description: Registers a new user. 
+Authentication: Not required. 
+Request Body:
+{
+  "userName": "string",
+  "password": "string",
+  "email": "string",
+  "phoneNum": "string"
+}
+Response:{“User register successfully”}
+
+
+GET
+
+Login(Fetching JWT Token)
+Endpoint: `/user/login` 
+Method: `GET` 
+Description: Logins user. 
+ Request Params:
+Username:string
+Password:string
+Response : 
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5..."
+}
+
+Get Task
+
+Endpoint: `/Task/getTask` 
+Method: `GET` 
+Description:Get a todo item. 
+Request Params:
+userId:long
+taskId:long
+Response : 
+
+{
+  "task": "Office work",
+  "descriptionStatus": "Complete cashfree payment",
+  "priority": "high",
+  "dueDate": "2024-11-17",
+  "createdTs": "2024-09-28T11:32:45.260+00:00",
+  "updatedTs": "2024-09-28T11:32:45.260+00:00",
+  "userId": 3,
+  "status": "inprogress"
+}
+
+Get All Task
+
+Endpoint: `/Task/getAllTask` 
+Method: `GET` 
+Description : get all tasks by userid. 
+Request Params:
+userId:long
+Response : 
+{
+					{
+  "task": "Office work",
+  "descriptionStatus": "Complete cashfree payment",
+  "priority": "high",
+  "dueDate": "2024-11-17",
+  "createdTs": "2024-09-28T11:32:45.260+00:00",
+  "updatedTs": "2024-09-28T11:32:45.260+00:00",
+  "userId": 3,
+  "status": "inprogress"
+},
+
+
+{
+  "task": "Office work",
+  "descriptionStatus": "Complete cashfree payment",
+  "priority": "high",
+  "dueDate": "2024-11-17",
+  "createdTs": "2024-09-28T11:32:45.260+00:00",
+  "updatedTs": "2024-09-28T11:32:45.260+00:00",
+  "userId": 3,
+  "status": "inprogress"
+}
+
+}
+
+Filters
+
+Endpoint: `/Task/filter` 
+Method: `GET` 
+Description : filtered tasks by status,priority,duedate,userid. 
+Request Params:
+userId:long
+Status:string
+Priority:string
+duedate:string
+
+Search
+
+Endpoint: `/Task/search` 
+Method: `GET` 
+Description :search by inputTerm. 
+Request Params:
+inputTerm:string
+
+PUT
+
+UpdateTasks
+Endpoint: `/Task/updateTask` 
+Method: `PUT` 
+Description :update a todo item. 
+Request Params:
+userId:long
+taskId:long
+
+
+DELETE
+
+DeleteTasks
+Endpoint: `/Task/deleteTask` 
+Method: `DELETE` 
+Description :delete task by userId and taskId. 
+Request Params:
+userId:long
+taskId:long
+Response:
+				“Task deleted successfully”
+
+Challenges:
+
+Implemented authentication by generating a JWT token during each sign-up.
+Implemented search and filtering based on the user's status and the priority of todo items.
+Created a Docker image for the application and tracked the container status, ports, and configurations.
+Configured Swagger and integrated it with the application.
+
+
+
